@@ -1,0 +1,10 @@
+# Ignore virtual environment
+venv/
+
+# Bytecode files
+__pycache__/
+*.pyc
+
+# Logs and temp files
+*.log
+*.tmp

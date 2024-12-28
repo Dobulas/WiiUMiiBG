@@ -6,6 +6,12 @@ import imageio
 from time import time
 from tkinter import Tk, filedialog  # For folder selection
 from extractColors import extract_kmean_colors
+# Add the root directory to the module search path
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from config import FRAGMENT_SHADER_PATH, VERTEX_SHADER_PATH
+
 
 ########################
 # Parsing Durations
@@ -46,16 +52,15 @@ FPS = 60
 
 ctx = moderngl.create_standalone_context()
 
-vertex_shader = """
-#version 330 core
-layout(location = 0) in vec2 in_position;
-void main() {
-    gl_Position = vec4(in_position, 0.0, 1.0);
-}
-"""
-fragment_shader_path = "wiiU.frag"
-with open(fragment_shader_path, 'r') as f:
-    fragment_shader = f.read()
+# Load vertex and fragment shaders
+def load_shader(file_path):
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Shader file not found: {file_path}")
+    with open(file_path, 'r') as f:
+        return f.read()
+    
+vertex_shader = load_shader(VERTEX_SHADER_PATH)
+fragment_shader = load_shader(FRAGMENT_SHADER_PATH)
 
 program = ctx.program(vertex_shader=vertex_shader, fragment_shader=fragment_shader)
 

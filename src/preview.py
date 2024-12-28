@@ -1,4 +1,9 @@
 import os
+import sys
+
+# Add the root directory to the module search path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from tkinter import Tk, filedialog
 import moderngl
 import pygame
@@ -6,6 +11,7 @@ import numpy as np
 from pygame.locals import DOUBLEBUF, OPENGL
 from extractColors import extract_kmean_colors  # Import your K-means function
 from time import time
+from config import FRAGMENT_SHADER_PATH, VERTEX_SHADER_PATH
 
 ########################
 # Parsing Durations
@@ -173,15 +179,8 @@ def load_shader(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
-vertex_shader = """
-#version 330 core
-layout(location = 0) in vec2 in_position;
-void main() {
-    gl_Position = vec4(in_position, 0.0, 1.0);
-}
-""".strip()
-
-fragment_shader = load_shader("wiiU.frag")  # The revised shader above
+vertex_shader = load_shader(VERTEX_SHADER_PATH)
+fragment_shader = load_shader(FRAGMENT_SHADER_PATH)
 
 ########################
 # Compile/Link Shader
