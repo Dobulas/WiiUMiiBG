@@ -62,13 +62,14 @@ void main() {
     // Base wave parameters (constant speed, no dynamic BPM)
     float baseAmplitude = 0.025;
     float baseFrequency = 3.0;
-    float baseFlow      = -0.2;   // A fixed negative flow for horizontal wave motion
+    float baseFlow      = -0.1;   // A fixed negative flow for horizontal wave motion
     float thickness     = 0.005;
 
     // Draw multiple waves
     for (int i = 0; i < 7; i++) {
         // Random vertical offset
-        float verticalOffset  = mix(-0.2, 0.6, random(float(i)));
+        float verticalOffset = mix(-.2, 0.6, random(float(i)))
+                       + 0.9 * sin(float(i) * 3.14); // Oscillation based on index
         // Random amplitude/frequency
         float amplitude       = baseAmplitude * mix(1.0, 5.3, random(float(i) + 2.0));
         float frequency       = baseFrequency * mix(0.2, 2.5, random(float(i) + 1.0));
@@ -81,6 +82,11 @@ void main() {
         // Reverse direction for certain waves
         if (i == 3 || i == 5) {
             waveFlow = -waveFlow;
+        }
+        if (i == 6) {
+            amplitude = amplitude +.01;
+            frequency = frequency - 2.0;
+            waveFlow = waveFlow -.15;
         }
 
         // Interpolate wave colors based on transitionProgress
