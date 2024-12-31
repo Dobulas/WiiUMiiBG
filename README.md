@@ -4,7 +4,7 @@ A shader inspired by the Wii U Mii transfer screen where users scanned QR codes 
 
 ## Example Video
 
-Check out this project in action on YouTube:
+Here is an example of the inspiration on YouTube:
 
 [![Watch the video](https://img.youtube.com/vi/9N3VN-55R0Y/hqdefault.jpg)](https://www.youtube.com/watch?v=9N3VN-55R0Y)
 
