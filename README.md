@@ -2,14 +2,22 @@ WiiUMiiBG
 
 A shader inspired by the Wii U Mii transfer screen where users scanned QR codes to transfer Miis. This version adds the ability to select a color palette from the top 7 colors in an image and transitions between palettes over time. Originally created for a YouTube mix.
 
-Features
+## Example Video
+
+Check out this project in action on YouTube:
+
+[![Watch the video](https://img.youtube.com/vi/9N3VN-55R0Y/hqdefault.jpg)](https://www.youtube.com/watch?v=9N3VN-55R0Y)
+
+Click the image or [this link](https://www.youtube.com/watch?v=9N3VN-55R0Y) to view the video!
+
+## Features
 
 - Dynamic Wave Animation: Smooth, customizable wave animations inspired by the Wii U Mii transfer screen.
 - Color Palette Extraction: Uses K-means clustering to extract dominant colors from album cover images.
 - Gradient Transitions: Gradual transitions between extracted color palettes for visual fluidity.
 - Video Rendering: Outputs a high-quality MP4 file of the shader animation.
 
-Folder Structure
+## Folder Structure
 
 SDF Project/
 ├── src/                  # Source code
@@ -27,12 +35,12 @@ SDF Project/
 ├── .gitignore            # Excluded files/folders
 ├── README.md             # Project documentation
 
-Requirements
+## Requirements
 
 Ensure you have Python 3.7+ installed. Install the required libraries by running:
 pip install -r requirements.txt
 
-Dependencies
+## Dependencies
 
 The project relies on the following Python libraries:
 - moderngl: For GPU-accelerated rendering.
@@ -42,7 +50,7 @@ The project relies on the following Python libraries:
 - Pillow: For image processing.
 - imageio: For video encoding.
 
-Usage
+## Usage
 
 1. Live Shader Preview
 Run the shader animation in real-time using:
@@ -66,7 +74,7 @@ Inputs:
 Output:
 - The rendered video is saved as output.mp4 in the same folder.
 
-File Details
+## File Details
 
 1. src/preview.py
 - Previews the shader animation in real-time.
@@ -83,7 +91,7 @@ File Details
 4. shaders/wiiU.frag and shaders/wiiU.vert
 - GLSL shaders responsible for rendering the wave animation and gradient backgrounds.
 
-Inputs
+## Inputs
 
 1. Album Covers
 Place album cover images in the assets/Album Covers/ directory. Supported formats:
@@ -98,7 +106,7 @@ This file specifies the duration and type of each animation segment. Example for
 - Non-transition segments specify static color palettes.
 - Transition segments smoothly blend between two palettes.
 
-Outputs
+## Outputs
 
 1. Live Preview
 Displays the shader animation in a window.
@@ -106,14 +114,10 @@ Displays the shader animation in a window.
 2. Rendered Video
 A high-quality MP4 video file (output.mp4) is saved to the same folder as the input files.
 
-Inspiration
-
-This project is inspired by the Wii U Mii transfer screen's smooth wave animations and customizable visuals. It's a tribute to the design aesthetics of the Wii U.
-
-License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-Contributions
+## Contributions
 
 Contributions are welcome! If you'd like to improve the project, submit a pull request or open an issue.
